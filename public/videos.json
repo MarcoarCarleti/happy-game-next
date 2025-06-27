@@ -1,0 +1,26 @@
+[
+  {
+    "path": "public/videos/AC_SHADOWS.mp4",
+    "name": "Assassin's Creed Shadows"
+  },
+  {
+    "path": "public/videos/DH_2.mp4",
+    "name": "Death Stranding 2"
+  },
+  {
+    "path": "public/videos/DOOM_DARK_AGES.mp4",
+    "name": "Doom: The Dark Ages"
+  },
+  {
+    "path": "public/videos/ER_NIGHTREIGN.mp4",
+    "name": "Elden Ring: NightReign"
+  },
+  {
+    "path": "public/videos/GTA_VI.mp4",
+    "name": "Grand Theft Auto VI"
+  },
+  {
+    "path": "public/videos/SH_F.mp4",
+    "name": "Silent Hill F"
+  }
+]
