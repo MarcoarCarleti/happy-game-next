@@ -6,6 +6,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogoutIcon } from "./icons/log-out";
 
+const menuItems = [
+  { label: "Home", href: "/" },
+  { label: "Pesquisa", href: "/pesquisa" },
+  { label: "Contato", href: "/contato" },
+  { label: "Feedback", href: "/feedback" },
+];
+
 const Header = () => {
   const pathname = usePathname();
 
@@ -24,45 +31,23 @@ const Header = () => {
           />
         </div>
         <ul className="flex space-x-6">
-          <li>
-            <Link
-              href="/"
-              className={
-                pathname === "/"
-                  ? "text-blue-400 font-bold"
-                  : "hover:text-blue-400 transition-colors duration-200" // Inactive classes
-              }
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/pesquisa"
-              className={
-                pathname === "/pesquisa" // Check if the current path is '/pesquisa'
-                  ? "text-blue-400 font-bold"
-                  : "hover:text-blue-400 transition-colors duration-200"
-              }
-            >
-              Pesquisa
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contato"
-              className={
-                pathname === "/contato" // Check if the current path is '/contato'
-                  ? "text-blue-400 font-bold"
-                  : "hover:text-blue-400 transition-colors duration-200"
-              }
-            >
-              Contato
-            </Link>
-          </li>
+          {menuItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={
+                  pathname === item.href
+                    ? "text-blue-400 font-bold"
+                    : "hover:text-blue-400 transition-colors duration-200"
+                }
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-         <div className="flex items-center">
+        <div className="flex items-center">
           {currentUser ? (
             <button
               onClick={() => logout()}
