@@ -62,7 +62,7 @@ export default function FeedbackPage() {
   };
 
   return (
-    <main className="container mx-auto p-4 md:p-8 mt-8 text-black dark:text-white">
+    <main className="container mx-auto p-4 md:p-8 mt-8 text-black dark:text-white focus-outline:none" tabIndex={-1} id="main-content" >
       <section id="feedbacks-section" className="mb-10">
         <h2 className="text-3xl font-bold text-black dark:text-white mb-6 text-center">Feedbacks Enviados</h2>
         <div id="feedbacks-container" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

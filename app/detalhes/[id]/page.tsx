@@ -163,7 +163,7 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
   };
 
   return (
-    <main className="container mx-auto p-4 md:p-8 mt-8 text-black dark:text-white">
+    <main className="container mx-auto p-4 md:p-8 mt-8 text-black dark:text-white focus-outline:none" tabIndex={-1} id="main-content" >
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl mb-8">
         <Image
           src={game.background_image}

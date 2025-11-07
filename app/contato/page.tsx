@@ -38,7 +38,7 @@ export default function ContatoPage() {
   };
 
   return (
-    <main className="container mx-auto p-4 md:p-8 mt-8 text-black dark:text-white">
+    <main className="container mx-auto p-4 md:p-8 mt-8 text-black dark:text-white focus-outline:none" tabIndex={-1} id="main-content" >
       <h1 className="text-4xl font-bold text-black dark:text-white mb-6 text-center">
         Contato
       </h1>
