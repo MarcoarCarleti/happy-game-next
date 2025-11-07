@@ -59,14 +59,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="w-screen h-screen flex items-center">
-      <div className="w-full mx-auto max-w-md p-8 space-y-6 bg-white rounded-xl shadow-lg">
-        <h1 className="text-3xl font-bold text-center text-gray-800">
+    <div className="w-screen h-screen flex items-center bg-gray-50 dark:bg-gray-900">
+      <div className="w-full mx-auto max-w-md p-8 space-y-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+        <h1 className="text-3xl font-bold text-center text-black dark:text-white">
           Bem-vindo!
         </h1>
 
         {error && (
-          <p className="p-3 text-center text-sm font-medium text-red-800 bg-red-100 rounded-lg">
+          <p className="p-3 text-center text-sm font-medium text-red-800 bg-red-100 dark:text-red-200 dark:bg-red-900 rounded-lg">
             {error}
           </p>
         )}
@@ -75,7 +75,7 @@ export default function LoginPage() {
           <div>
             <label
               htmlFor="email"
-              className="text-sm font-medium text-gray-600"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               E-mail
             </label>
@@ -85,13 +85,13 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="seu@email.com"
-              className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white dark:bg-gray-700 dark:border-gray-600"
             />
           </div>
           <div>
             <label
               htmlFor="password"
-              className="text-sm font-medium text-gray-600"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               Senha
             </label>
@@ -101,7 +101,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="********"
-              className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white dark:bg-gray-700 dark:border-gray-600"
             />
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function LoginPage() {
           </button>
           <Link
             href={"/cadastro"}
-            className="flex items-center justify-center w-full px-4 py-3 font-semibold text-blue-600 bg-white border border-blue-600 rounded-lg hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 transition-colors duration-300"
+            className="flex items-center justify-center w-full px-4 py-3 font-semibold text-blue-600 bg-white border border-blue-600 rounded-lg hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 transition-colors duration-300 dark:text-blue-400 dark:bg-gray-800 dark:border-blue-400 dark:hover:bg-gray-700"
           >
             Criar conta
           </Link>
@@ -124,9 +124,9 @@ export default function LoginPage() {
 
         {/* <div className="relative flex items-center justify-center my-4">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300"></div>
+          <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
         </div>
-        <div className="relative px-2 bg-white text-sm text-gray-500">
+        <div className="relative px-2 bg-white dark:bg-gray-800 text-sm text-gray-500 dark:text-gray-400">
           Ou continue com
         </div>
       </div>
@@ -134,7 +134,7 @@ export default function LoginPage() {
       <button
         onClick={handleGoogleLogin}
         disabled={isSubmitting}
-        className="w-full flex items-center justify-center px-4 py-3 font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 disabled:opacity-50 transition-colors duration-300"
+        className="w-full flex items-center justify-center px-4 py-3 font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 disabled:opacity-50 transition-colors duration-300 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600"
       >
         <svg className="w-5 h-5 mr-2" viewBox="0 0 48 48">
           <path

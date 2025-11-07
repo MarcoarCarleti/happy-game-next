@@ -1,4 +1,4 @@
-'use client'; 
+'use client';
 
 import { useState, useEffect, type FormEvent, type ChangeEvent } from 'react';
 import { StarRating } from '../../components/star-rating';
@@ -44,14 +44,14 @@ export default function FeedbackPage() {
       nome: nome.trim(),
       mensagem: mensagem.trim(),
       rating: rating,
-      data: new Date().toLocaleString('pt-BR'), 
+      data: new Date().toLocaleString('pt-BR'),
     };
 
     setFeedbacks((prevFeedbacks) => [...prevFeedbacks, newFeedback]);
 
     setNome('');
     setMensagem('');
-    setRating(0); 
+    setRating(0);
     alert('Seu feedback foi salvo com sucesso!');
   };
 
@@ -62,26 +62,26 @@ export default function FeedbackPage() {
   };
 
   return (
-    <main className="container mx-auto p-4 md:p-8 mt-8">
+    <main className="container mx-auto p-4 md:p-8 mt-8 text-black dark:text-white">
       <section id="feedbacks-section" className="mb-10">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Feedbacks Enviados</h2>
+        <h2 className="text-3xl font-bold text-black dark:text-white mb-6 text-center">Feedbacks Enviados</h2>
         <div id="feedbacks-container" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {feedbacks.length === 0 ? (
-            <p className="col-span-full text-center text-gray-600">Nenhum feedback enviado ainda.</p>
+            <p className="col-span-full text-center text-gray-700 dark:text-gray-300">Nenhum feedback enviado ainda.</p>
           ) : (
             feedbacks.map((feedback, index) => (
-              <div key={index} className="feedback bg-white p-6 rounded-lg shadow-md flex flex-col items-start">
+              <div key={index} className="feedback bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md flex flex-col items-start">
                 <div className="feedback-card-header flex items-center mb-4">
-                  <Image width={0} height={0} sizes='100vw' src="/user_placeholder.png" alt={`Foto de ${feedback.nome}`} className="w-12 h-12 rounded-full mr-4 object-cover border border-gray-200" />
+                  <Image width={0} height={0} sizes='100vw' src="/user_placeholder.png" alt={`Foto de ${feedback.nome}`} className="w-12 h-12 rounded-full mr-4 object-cover border border-gray-200 dark:border-gray-700" />
                   <div className="feedback-card-info">
-                    <h4 className="text-lg font-semibold text-gray-900">{feedback.nome}</h4>
-                    <p className="feedback-card-date text-sm text-gray-500">{feedback.data}</p>
+                    <h4 className="text-lg font-semibold text-black dark:text-white">{feedback.nome}</h4>
+                    <p className="feedback-card-date text-sm text-gray-500 dark:text-gray-400">{feedback.data}</p>
                     <p className="feedback-card-rating text-yellow-500 text-xl">
                       {renderStars(feedback.rating)}
                     </p>
                   </div>
                 </div>
-                <p className="feedback-card-message text-gray-700 flex-grow">
+                <p className="feedback-card-message text-gray-700 dark:text-gray-300 flex-grow">
                   {feedback.mensagem ? feedback.mensagem : 'Nenhuma mensagem.'}
                 </p>
               </div>
@@ -90,11 +90,11 @@ export default function FeedbackPage() {
         </div>
       </section>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Deixe seu feedback</h1>
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+        <h1 className="text-3xl font-bold text-black dark:text-white mb-6 text-center">Deixe seu feedback</h1>
         <form onSubmit={handleSubmit} id="feedback-form">
           <div className="mb-4">
-            <label htmlFor="nome" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="nome" className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
               Nome:
             </label>
             <input
@@ -104,12 +104,12 @@ export default function FeedbackPage() {
               value={nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setNome(e.target.value)}
               required
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             />
           </div>
 
           <div className="mb-4">
-            <label htmlFor="mensagem" className="block text-gray-700 text-sm font-bold mb-2">
+            <label htmlFor="mensagem" className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
               Mensagem (Opcional):
             </label>
             <textarea
@@ -118,12 +118,12 @@ export default function FeedbackPage() {
               rows={5}
               value={mensagem}
               onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMensagem(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             ></textarea>
           </div>
 
           <div className="rating-container mb-6 text-center">
-            <h3 className="text-xl font-bold text-gray-800 mb-3">📢 Sua Avaliação</h3>
+            <h3 className="text-xl font-bold text-black dark:text-white mb-3">📢 Sua Avaliação</h3>
             <StarRating initialRating={rating} onRatingChange={handleRatingChange} />
           </div>
 

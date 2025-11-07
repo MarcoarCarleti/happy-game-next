@@ -123,7 +123,7 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
   if (loading) {
     return (
       <main className="container mx-auto p-4 md:p-8 mt-8 flex justify-center items-center h-96">
-        <div className="text-xl font-semibold text-gray-700">Carregando...</div>
+        <div className="text-xl font-semibold text-gray-700 dark:text-gray-300">Carregando...</div>
       </main>
     );
   }
@@ -131,12 +131,12 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
   if (error || !game) {
     return (
       <main className="container mx-auto p-4 md:p-8 mt-8 text-center">
-        <p className="text-red-600 text-xl font-semibold">
+        <p className="text-red-600 dark:text-red-400 text-xl font-semibold">
           {error || "Jogo não encontrado!"}
         </p>
         <button
           onClick={() => window.history.back()}
-          className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
+          className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors duration-200 dark:bg-gray-600 dark:hover:bg-gray-700"
         >
           🔙 Voltar
         </button>
@@ -163,8 +163,8 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
   };
 
   return (
-    <main className="container mx-auto p-4 md:p-8 mt-8">
-      <div className="bg-white p-6 rounded-lg shadow-xl mb-8">
+    <main className="container mx-auto p-4 md:p-8 mt-8 text-black dark:text-white">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl mb-8">
         <Image
           src={game.background_image}
           alt={game.name}
@@ -174,33 +174,33 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
           className="w-full h-80 object-contain rounded-lg mb-6"
           unoptimized={true}
         />
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
           {game.name}
         </h2>
-        <p className="text-lg text-gray-700 mb-2">
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-2">
           <strong className="font-semibold">Nota RAWG:</strong> ⭐ {userScore}
         </p>
-        <p className="text-lg text-gray-700 mb-4">
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
           <strong className="font-semibold">Metacritic:</strong> 🎯 {metacritic}
         </p>
         <p
-          className="text-gray-600 mb-6"
+          className="text-gray-600 dark:text-gray-400 mb-6"
           dangerouslySetInnerHTML={{ __html: game.description }}
         />
 
-        <p className="text-gray-700 mb-6">
+        <p className="text-gray-700 dark:text-gray-300 mb-6">
           <strong className="font-semibold">🎮 Gêneros:</strong>{" "}
           {game.genres.map((g) => g.name).join(", ")}
         </p>
 
         <div className="mb-8">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             📊 Avaliações Detalhadas
           </h3>
           {game.ratings.length > 0 ? (
             <ul className="space-y-2">
               {game.ratings.map((rating) => (
-                <li key={rating.id} className="text-gray-700">
+                <li key={rating.id} className="text-gray-700 dark:text-gray-300">
                   {getRatingEmoji(rating.title)}{" "}
                   <strong className="capitalize">{rating.title}:</strong>{" "}
                   {rating.percent.toFixed(1)}%
@@ -208,24 +208,24 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
               ))}
             </ul>
           ) : (
-            <p className="text-gray-600">Sem avaliações detalhadas.</p>
+            <p className="text-gray-600 dark:text-gray-400">Sem avaliações detalhadas.</p>
           )}
         </div>
 
         <div className="mb-8 overflow-x-auto">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             🕹 Plataformas
           </h3>
-          <table className="min-w-full bg-gray-50 rounded-lg overflow-hidden shadow">
-            <thead className="bg-gray-200">
+          <table className="min-w-full bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow">
+            <thead className="bg-gray-200 dark:bg-gray-900">
               <tr>
-                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">
+                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
                   Plataforma
                 </th>
-                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">
+                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
                   Requisitos Mínimos
                 </th>
-                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700">
+                <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
                   Requisitos Recomendados
                 </th>
               </tr>
@@ -234,16 +234,16 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
               {game.platforms.map((platformData) => (
                 <tr
                   key={platformData.platform.id}
-                  className="border-b last:border-b-0 border-gray-200 even:bg-gray-100"
+                  className="border-b last:border-b-0 border-gray-200 dark:border-gray-600 even:bg-gray-100 dark:even:bg-gray-800"
                 >
-                  <td className="py-3 px-4 text-gray-800 font-medium">
+                  <td className="py-3 px-4 text-gray-800 dark:text-white font-medium">
                     {platformData.platform.name}
                   </td>
-                  <td className="py-3 px-4 text-gray-700 text-sm">
+                  <td className="py-3 px-4 text-gray-700 dark:text-gray-300 text-sm">
                     {platformData.requirements?.minimum ||
                       "Sem requisitos mínimos disponíveis."}
                   </td>
-                  <td className="py-3 px-4 text-gray-700 text-sm">
+                  <td className="py-3 px-4 text-gray-700 dark:text-gray-300 text-sm">
                     {platformData.requirements?.recommended ||
                       "Sem requisitos recomendados disponíveis."}
                   </td>
@@ -253,8 +253,8 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
           </table>
         </div>
 
-        <div className="rating-container bg-gray-100 p-6 rounded-lg shadow-inner flex flex-col items-center">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+        <div className="rating-container bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-inner flex flex-col items-center">
+          <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 text-center">
             📢 Sua Avaliação
           </h3>
           <StarRating
@@ -270,7 +270,7 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
           </button>
           <p
             id="saved-rating"
-            className="mt-4 text-lg font-semibold text-gray-700"
+            className="mt-4 text-lg font-semibold text-gray-700 dark:text-gray-300"
           >
             {savedUserRatingText}
           </p>
@@ -280,7 +280,7 @@ export default function DetalhesPage({ params }: DetalhesPageProps) {
       <div className="flex justify-center">
         <button
           onClick={() => window.history.back()}
-          className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-200 text-lg"
+          className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-200 text-lg dark:bg-gray-600 dark:hover:bg-gray-700"
         >
           🔙 Voltar
         </button>

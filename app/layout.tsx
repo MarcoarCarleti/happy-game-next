@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { AuthProvider } from "@/providers/auth-provider";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
       >
         <AuthProvider>
-          <Header />
-          {children}
-          <Footer />
+          <ThemeProvider attribute={'class'} defaultTheme={'light'} enableSystem={true}>
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
         </AuthProvider>
       </body>
     </html>
